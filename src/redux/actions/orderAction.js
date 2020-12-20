@@ -1,6 +1,13 @@
 import axios from "axios";
-import { USER_PLACE_ORDER_FAILED, USER_PLACE_ORDER_SUCCESS } from "../types/orderTypes"
+import {
+    USER_PLACE_ORDER_FAILED,
+    USER_PLACE_ORDER_SUCCESS,
+    ORDER_DETAILS_REQUEST,
+    ORDER_DETAILS_SUCCESS,
+    ORDER_DETAILS_FAILED
+} from "../types/orderTypes"
 import { CLEAR_CART_ITEMS } from "../types/cartTypes";
+import Axios from "axios";
 
 export const placeOrder = (info, paymentResult) => async (dispatch) => {
     try {
@@ -31,6 +38,28 @@ export const placeOrder = (info, paymentResult) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: USER_PLACE_ORDER_FAILED,
+            payload: error.message
+        })
+    }
+}
+
+export const orderDetails = (orderId) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: ORDER_DETAILS_REQUEST
+        });
+        const { token } = getState().userLoginInfo;
+        const config = {
+            headers: { 'Authorization': `Bearer ${token}` }
+        }
+        const { data } = await axios.get(`http://localhost:5000/orders/${orderId}`, config);
+        dispatch({
+            type: ORDER_DETAILS_SUCCESS,
+            payload: data
+        })
+    } catch (error) {
+        dispatch({
+            type: ORDER_DETAILS_FAILED,
             payload: error.message
         })
     }

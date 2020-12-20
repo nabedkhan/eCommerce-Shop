@@ -13,6 +13,7 @@ import Shipping from './components/Shipping';
 import Order from './components/Order';
 import OrderSuccess from './components/OrderSuccess';
 import MyOrders from './components/MyOrders';
+import OrderDetails from './components/OrderDetails';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <PrivateRoute path="/order" children={<Order />} />
           <PrivateRoute path="/orderSuccess" children={<OrderSuccess />} />
           <PrivateRoute path="/myOrders" children={<MyOrders />} />
+          <PrivateRoute path="/orders/:id" children={<OrderDetails />} />
 
           <Route path="*">
             <h1>Not Found</h1>

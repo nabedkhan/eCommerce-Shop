@@ -29,13 +29,15 @@ export function userLogin(state = { userInfo: {} }, action) {
         case SIGN_IN_USER_FAILED:
             return {
                 ...state,
-                error: action.payload
+                error: action.payload,
+                success: false
             }
         case USER_LOG_OUT:
             return {
                 ...state,
                 userInfo: action.payload,
-                token: action.payload
+                token: action.payload,
+                success: false
             }
         case USER_AUTH_TOKEN_SUCCESS:
             return {

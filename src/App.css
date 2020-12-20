@@ -6,3 +6,7 @@
 .custom-height {
   min-height: calc(100vh - (84px + 56px));
 }
+
+.table td, .table th {
+  vertical-align: middle !important;
+}
