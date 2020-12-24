@@ -1,4 +1,5 @@
 import {
+    ADMIN_USER_SUCCESS,
     NEW_USER_FAILED,
     NEW_USER_SUCCESS,
     SIGN_IN_USER_FAILED,
@@ -37,7 +38,7 @@ export function userLogin(state = { userInfo: {} }, action) {
                 ...state,
                 userInfo: action.payload,
                 token: action.payload,
-                success: false
+                success: false,
             }
         case USER_AUTH_TOKEN_SUCCESS:
             return {

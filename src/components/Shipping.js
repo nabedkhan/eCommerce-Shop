@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { userShippingInfo } from '../redux/actions/cartAction';
+import { RESET_SHIPPING_ADDRESS } from '../redux/types/cartTypes';
 
 const Shipping = () => {
     const dispatch = useDispatch();
@@ -30,8 +31,9 @@ const Shipping = () => {
     useEffect(() => {
         if (success) {
             history.push('/order');
+            dispatch({ type: RESET_SHIPPING_ADDRESS })
         }
-    }, [history, success]);
+    }, [history, success, dispatch]);
 
     return (
         <section className="custom-height d-flex align-items-center">

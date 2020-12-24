@@ -1,4 +1,4 @@
-import { ADD_TO_CART_PRODUCT, CLEAR_CART_ITEMS, REMOVE_FROM_CART_PRODUCT, USER_SHIPPING_ADDRESS } from "../types/cartTypes";
+import { ADD_TO_CART_PRODUCT, CLEAR_CART_ITEMS, REMOVE_FROM_CART_PRODUCT, RESET_SHIPPING_ADDRESS, USER_SHIPPING_ADDRESS } from "../types/cartTypes";
 
 const initialState = {
     cartItems: [],
@@ -30,6 +30,11 @@ export function cartReducer(state = initialState, action) {
             return {
                 ...state,
                 shippingAddress: { ...action.payload, success: true }
+            }
+        case RESET_SHIPPING_ADDRESS:
+            return {
+                ...state,
+                shippingAddress: { ...state.shippingAddress, success: false }
             }
         case CLEAR_CART_ITEMS:
             return {

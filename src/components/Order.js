@@ -20,9 +20,13 @@ const Order = () => {
 
     const handlePlaceOrder = (paymentResult) => {
         const orderDetails = {
-            userInfo: userInfo,
-            items: cartItems,
-            shippingAddress: shippingAddress,
+            userInfo,
+            cartItems,
+            shippingAddress,
+            items,
+            tax,
+            shipping,
+            total
         }
         dispatch(placeOrder(orderDetails, paymentResult));
     }

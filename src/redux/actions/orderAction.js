@@ -7,7 +7,6 @@ import {
     ORDER_DETAILS_FAILED
 } from "../types/orderTypes"
 import { CLEAR_CART_ITEMS } from "../types/cartTypes";
-import Axios from "axios";
 
 export const placeOrder = (info, paymentResult) => async (dispatch) => {
     try {

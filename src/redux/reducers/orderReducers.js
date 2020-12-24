@@ -21,7 +21,7 @@ export function placeOrderReducers(state = {}, action) {
     }
 }
 
-export function orderDetailsReducers(state = { order: {} }, action) {
+export function orderDetailsReducers(state = { order: {}, loading: true }, action) {
     switch (action.type) {
         case ORDER_DETAILS_REQUEST:
             return {
