@@ -21,7 +21,7 @@ export const placeOrder = (info, paymentResult) => async (dispatch) => {
             delivered: false,
             paidAt: new Date()
         }
-        const { data } = await axios.post('http://localhost:5000/orderComplete', order);
+        const { data } = await axios.post('https://nameless-inlet-35485.herokuapp.com/orderComplete', order);
 
         dispatch({
             type: USER_PLACE_ORDER_SUCCESS,
@@ -51,7 +51,7 @@ export const orderDetails = (orderId) => async (dispatch, getState) => {
         const config = {
             headers: { 'Authorization': `Bearer ${token}` }
         }
-        const { data } = await axios.get(`http://localhost:5000/orders/${orderId}`, config);
+        const { data } = await axios.get(`https://nameless-inlet-35485.herokuapp.com/orders/${orderId}`, config);
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
             payload: data

@@ -1,4 +1,3 @@
-import Axios from "axios";
 import { createNewUserWithEmail, generateToken, signInWithEmail } from "../../firebase/firebase";
 import {
     NEW_USER_SUCCESS,
@@ -7,8 +6,7 @@ import {
     SIGN_IN_USER_FAILED,
     USER_LOG_OUT,
     USER_AUTH_TOKEN_SUCCESS,
-    USER_AUTH_TOKEN_FAILED,
-    ADMIN_USER_SUCCESS
+    USER_AUTH_TOKEN_FAILED
 } from "../types/userLoginTypes";
 
 export const newUserCreation = (email, password) => async (dispatch, getState) => {

@@ -4,7 +4,7 @@ import {
 } from "../types/cartTypes";
 
 export const addToCartProduct = (id, qty) => async (dispatch, getState) => {
-    const { data } = await axios.get(`http://localhost:5000/products/${id}`);
+    const { data } = await axios.get(`https://nameless-inlet-35485.herokuapp.com/products/${id}`);
     dispatch({
         type: ADD_TO_CART_PRODUCT,
         payload: {
